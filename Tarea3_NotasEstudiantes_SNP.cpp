@@ -111,6 +111,7 @@ int main() {
     cout << "2. Ver notas sobre el promedio." << endl;
     cout << "3. Ver nota minima, maxima y promedio de notas." << endl;
     cout << "4. Salir" << endl;
+    // Verificador+
     while (!(cin >> opcion) or (opcion < 1 or (opcion > 4))) {
       cin.clear();
       cin.ignore(1000, '\n');
