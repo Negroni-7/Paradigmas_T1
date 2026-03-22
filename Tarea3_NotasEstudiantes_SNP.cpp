@@ -51,7 +51,7 @@ public:
     }
 
     // Además, se agrega la cantidad de notas ingresadas
-    cantidad = calificaciones.size();
+    cantidad = (int) calificaciones.size();
     // Aviso al usuario
     cout << "Todas las notas agregadas correctamente: " << cantidad_notas << "/" << cantidad_notas << endl;
 
@@ -63,11 +63,11 @@ public:
   void calcular_promedio() {
     float sum = 0;
     // Se suman todas las calificaciones
-    for (int i: calificaciones) {
+    for (float i: calificaciones) {
       sum += i;
     }
 
-    promedio = sum / calificaciones.size();
+    promedio = sum / (float) calificaciones.size();
   }
 
   void listarCalificadionesSobrePromedio() {
