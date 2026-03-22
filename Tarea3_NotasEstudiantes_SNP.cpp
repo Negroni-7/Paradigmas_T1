@@ -87,7 +87,7 @@ public:
   void mostrarCalificacionMaxima() const {
     cout << "La nota maxima es " << cal_max << "." << endl;
   }
-
+  // Solo muestra los valores en pantalla, no realiza ningún cambio
   void mostrarDatosCalificaciones() const {
     cout << endl;
     mostrarCalificacionMinima();
@@ -105,6 +105,7 @@ public:
 int main() {
   int opcion;
   Calificaciones notas;
+  // Menú de opciones
   do {
     cout << "Seleccione opcion:" << endl;
     cout << "1. Agregar datos" << endl;
