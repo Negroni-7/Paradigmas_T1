@@ -72,7 +72,7 @@ public:
 
   void listarCalificadionesSobrePromedio() {
     cout << "Calificaciones sobre el promedio:" << endl;
-    for (int i: calificaciones) {
+    for (float i: calificaciones) {
       if (i > promedio) {
         cout << i << " | ";
       }
