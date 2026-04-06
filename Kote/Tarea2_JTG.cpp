@@ -1,5 +1,7 @@
-#include <cmath>
-#include <cctype>
+/*
+Autor: José-Tomás Guzmán Ilabel
+*/
+
 #include <iostream>
 using namespace std;
 
@@ -25,6 +27,7 @@ class ReservaHotel{
             nocheEstadia = 0;
             precioPorNoche = 0.0;
         }
+        //Setters para la reserva del hotel
         void setReserva(){
             setNumero();
             setNombreCliente();
@@ -79,6 +82,7 @@ class ReservaHotel{
                 cin >> precioPorNoche;
             }
         }
+        //Getters para la reserva del hotel
         int getNumero(){
             return numeroReserva;
         }
@@ -94,6 +98,7 @@ class ReservaHotel{
         float getPrecioPorNoche(){
             return precioPorNoche;
         }
+        //Metodos para mostrar la informacion de la reserva
         void mostrarInformacion(){
             cout << "------------Informacion de la reserva------------" << endl;
             cout << "Numero de reserva: " << numeroReserva << endl;
@@ -102,9 +107,11 @@ class ReservaHotel{
             cout << "Cantidad de noches de estadia: " << nocheEstadia << endl;
             cout << "Precio por noche: " << precioPorNoche << endl;
         }
+        //Metodo para actualizar la fecha por una ingresada por usuario
         void actualizarFechaEntrada(string nuevaFecha){
             fechaEntrada = nuevaFecha;
         }
+        //Metodo para calcular el costo total de la reserva
         float calcularCostoTotal(){
             float costoTotal = nocheEstadia * precioPorNoche;
             cout << "Costo total de la reserva: " << costoTotal << endl;
