@@ -1,0 +1,96 @@
+#include <iostream>// entrada y salida de datos
+#include <cmath> // para utilizar el comando pow
+using namespace std;
+
+float sum1 ( int n ) //función para la sumatoria 1 
+{
+    float x = 1.0 , s1 = 0; // x debe ser float para hacer correctamente la operación de s1.
+    while (x  <= n) // la condición siempre debe ir en parentesis
+    {
+        s1 =  s1 + ( 1.0 / x);
+        x +=1.0; //decimales deben ir con punto no con coma
+    }
+    return s1;//debe ir fuera del while porque sino se ejecuta una vez y saldrá de la función.
+}
+
+float sum2 ( int n )
+{
+    float x = 1.0, s2 = 0 ;
+    while ( x <= n )
+    {
+        s2 += x / pow (x+1,2);// se utiliza pow para calcular potencias (base,exponente)
+        x += 1.0; 
+    }
+    return s2;
+}
+
+float sum3 ( int n, int k)
+{
+    int base = k, x = 1;
+    float s3 = 0.0;
+    while ( x <= n)
+    {
+        s3 += x / pow(k,x);
+        x+=1;
+    }
+    return s3;
+}
+
+int main() {
+    int opcion, n, k;
+    float s1,s2,s3;
+        
+    do 
+    {
+            //menu de opciones 
+        cout << "HOLA! que sumatoria quieres realizar? \n 1- s1 = 1/ n \n 2- s2 = n / (n+1^2) \n 3- s3 = n / k ^ n \n " ;
+        cin >> opcion; //cin se utiliza para guardar el dato ingresado en una variable
+        
+        if (opcion >= 1 && opcion <=3)
+        {
+        
+            cout << " ingresa un valor para n distinto de cero y positivo" ;
+            cin >> n;
+        
+            if (n > 0)
+            {
+               if (opcion == 1)
+                   {
+                       s1 = sum1(n);
+                       cout <<"el resultado de la sumatoria 1 es: " << s1 << endl;
+                   }
+               else if ( opcion == 2)
+               {
+                   s2 = sum2(n);
+                   cout << "el resultad de la segunda sumatoria es: " << s2 << endl;
+               }
+               else if ( opcion == 3)
+               {
+                   cout << "ingrese un valor para k distinto de cero ";
+                   cin >> k;
+                   if ( k != 0)
+                   {
+                       s3 = sum3(n,k);
+                       cout << "el resultado de la sumatoria 3 es: " << s3 << endl;
+                   }
+                   else 
+                   {
+                       cout << "ERROR : k no puede ser cero." << endl;
+                      
+                   }
+               }
+               else 
+               {
+                   cout << "ERROR: debe ingresar los numeros 1,2 o 3" << endl;
+               }
+            }
+        }    
+        else 
+            {
+                cout << "ERROR: debe ingresar los numeros 1,2 o 3" << endl;
+            }
+    }
+    while (opcion != 0); // evalúa si debe repetirse el "volver" lo hace el bloque do
+    
+    return 0;
+}
