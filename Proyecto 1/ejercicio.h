@@ -15,7 +15,7 @@ class Ejercicio{
     public:
     //constructor
         Ejercicio() : ID(0), nombre(""), intensidad(0), tiempo(0), descripcion(""), gastoBase(0), gastoEnergetico(0) {}
-        virtual float calcularGastoEnergetico() = 0;
+        virtual float calcularGastoEnergetico() = 0; \\ virtual asociado a la polimorfismo 
         //Setters
         void setID(){
             cout << "Ingrese ID del ejercicio: ";
@@ -28,7 +28,7 @@ class Ejercicio{
 
         void setNombre(){
             cout << "Ingrese Nombre del ejercicio: ";
-            getline(cin >> ws, nombre);
+            getline(cin >> ws, nombre);\\ get line permite ingresar espacios
         }
 
         void setIntensidad(){
