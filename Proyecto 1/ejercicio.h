@@ -17,4 +17,9 @@ class Ejercicio{
         Ejercicio(){
 
         }
+        virtual float calcularGastoEnergetico() = 0;
+
+        float getGastoBase(){
+            return gastoBase;
+        }
 };

@@ -5,7 +5,16 @@
 using namespace std;
 
 class Fuerza : public Ejercicio{
-    int series;
-    int repeticiones;
-    float peso;
+    private:
+        int series;
+        int repeticiones;
+        float peso;
+    public:
+        Fuerza(){
+
+        }
+
+        float calcularGastoEnergetico() override {
+            return getGastoBase() + (series * repeticiones * peso * 0.1);
+        }
 };
