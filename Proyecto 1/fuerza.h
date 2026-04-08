@@ -1,15 +1,16 @@
 #pragma once // investigar que chota es
-#include "ejercicio.h"
+#include "ejercicio.h" // Asi se importa en c++
 #include <iostream>
 #include <string>
 using namespace std;
-
+// Aqui se crea la clase + se agrega la que se importa
 class Fuerza : public Ejercicio{
     private:
         int series;
         int repeticiones;
         float peso;
     public:
+        // Aqui se tienen que setear tanto como los seters de ejercicios como los nuevos
         Fuerza() : Ejercicio(){
             //Heredados
             setID();
@@ -26,15 +27,17 @@ class Fuerza : public Ejercicio{
             setGastoEnergetico();
         }
         //Setters
+        // Se ingresa la cantidad de serries realizadas
         void setSeries(){
             cout << "Ingrese la cantidad de series: ";
             cin >> series;
+            // Se crea un bucle para que determine un numero mayor a cero y no proboque errores en el calculo
             while (series <= 0){
                 cout << "Ingrese una cantidad mayor a 0 para las series del ejercicio: ";
                 cin >> series;                
             }
         }
-
+        // Se ingresa la cantidad de Repiticiones
         void setRepeticiones(){
             cout << "Ingrese la cantidad de repeticiones del ejercicio: ";
             cin >> repeticiones;
@@ -43,7 +46,7 @@ class Fuerza : public Ejercicio{
                 cin >> repeticiones;                
             }
         }
-
+        // Se ingresa la cantidad de peso
         void setPeso(){
             cout << "Ingrese el peso que utilizara en el ejercicio en KG: ";
             cin >> peso;
@@ -51,8 +54,21 @@ class Fuerza : public Ejercicio{
                 cout << "Ingrese un peso mayor a 0 para el ejercicio: ";
                 cin >> peso;                
             }
-        }        
+        }  
 
+        int getSeries(){
+            return serie;
+        }
+
+        int getRepeticiones(){
+            return repeticiones;
+        }
+
+        float getPeso(){
+            return peso;
+        }
+
+        // El override sobreescribe la funcion original para realizar un cambio del valor 0
         float calcularGastoEnergetico() override {
             return getGastoBase() + (series * repeticiones * peso * 0.1);
         }

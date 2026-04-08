@@ -25,6 +25,7 @@ class Cardiovascular : public Ejercicio{
         }
 
         //Setters
+        //Se ingresa la distacia recorrida
         void setDistancia(){
             cout << "Ingrese la distancia del ejercicio en metros: ";
             cin >> distancia;
@@ -33,7 +34,7 @@ class Cardiovascular : public Ejercicio{
                 cin >> distancia; 
             }
         }            
-        
+        // Se ingresa la velocidad promedio del ejercicio
         void setVelocidad(){
             cout << "Ingrese la velocidad del ejercicio en m/s: ";
             cin >> velocidad;
