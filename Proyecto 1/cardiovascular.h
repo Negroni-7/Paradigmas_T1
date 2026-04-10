@@ -1,4 +1,4 @@
-#pragma once // investigar que chota es
+#pragma once // Mejora tiempos de compilación y evita errores de redefinición
 #include "ejercicio.h"
 #include <iostream>
 #include <string>
