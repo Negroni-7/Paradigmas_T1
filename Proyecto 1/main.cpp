@@ -192,3 +192,4 @@ void consultarEjercicio() {
         cout << "Peso:             " << fuerza->getPeso() << " kg" << endl;
     }
 }
+a
