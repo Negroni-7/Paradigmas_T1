@@ -21,6 +21,7 @@ void menuEjercicios();
 void menuRutinas();
 //Se gestinona los ejercicios
 void registrarEjercicios();
+void eliminarEjercicios();
 void consultarEjercicios();
 void listarPorIntensidad();
 //Se gestiona las Rutinas
@@ -46,6 +47,7 @@ void menuPrincipal (){
         cout << "2. Gestion de Rutinas" << endl;
         cout << "3. Salir" << endl;
         cout << "Seleccione una opcion: ";
+        cin >> opcion;
         switch (opcion) {
             case 1: menuEjercicios(); break;
             case 2: menuRutinas(); break;
@@ -67,9 +69,9 @@ void menuEjercicios() {
         cout << "Seleccione una opcion: ";
         cin >> opcion;
         switch (opcion){
-        case 1: registrarEjercicio(); break;
-        case 2: eliminarEjercicio(); break;
-        case 3: consultarEjercicio(); break;
+        case 1: registrarEjercicios(); break;
+        case 2: eliminarEjercicios(); break;
+        case 3: consultarEjercicios(); break;
         case 4: listarPorIntensidad(); break;
         case 5: break;
         default: cout << "Opcion invalida, intente nuevamente." << endl;
@@ -95,7 +97,7 @@ void menuRutinas() {
     } while (opcion != 3);
 }
 
-void registrarEjercicio() {
+void registrarEjercicios() {
     if (cantEjercicios >= MAX_EJERCICIOS) {
         cout << "Se ha alcanzado el maximo de ejercicios registrados (" << MAX_EJERCICIOS << ")." << endl;
         return;  
@@ -121,7 +123,7 @@ void registrarEjercicio() {
     }
 }
 
-void eliminarEjercicio() {
+void eliminarEjercicios() {
     if (cantEjercicios == 0) {
         cout << "No hay ejercicios registrados." << endl;
         return;
@@ -146,7 +148,7 @@ void eliminarEjercicio() {
     cout << "Ejercicio eliminado correctamente." << endl;
 }
 
-void consultarEjercicio() {
+void consultarEjercicios() {
     if (cantEjercicios == 0) {
         cout << "No hay ejercicios registrados." << endl;
         return;
@@ -188,3 +190,15 @@ void consultarEjercicio() {
         cout << "Peso:             " << fuerza->getPeso() << " kg" << endl;
     }
 }
+
+int buscarEjerciciosPorID(int id) {
+    for (int i = 0; i < cantEjercicios; i++) {
+        if (ejercicios[i]->getID() == id) return i;
+    }
+    return -1;
+}
+
+void mostrarListaEjercicios() { cout << "Por implementar..." << endl; }
+void listarPorIntensidad()    { cout << "Por implementar..." << endl; }
+void crearRutina()            { cout << "Por implementar..." << endl; }
+void consultarRutina()        { cout << "Por implementar..." << endl; }
