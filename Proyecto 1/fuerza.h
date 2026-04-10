@@ -2,6 +2,7 @@
 #include "ejercicio.h" // Asi se importa en c++
 #include <iostream>
 #include <string>
+#include <limits>
 using namespace std;
 // Aqui se crea la clase + se agrega la que se importa
 class Fuerza : public Ejercicio{
@@ -30,29 +31,29 @@ class Fuerza : public Ejercicio{
         // Se ingresa la cantidad de serries realizadas
         void setSeries(){
             cout << "Ingrese la cantidad de series: ";
-            cin >> series;
             // Se crea un bucle para que determine un numero mayor a cero y no proboque errores en el calculo
-            while (series <= 0){
-                cout << "Ingrese una cantidad mayor a 0 para las series del ejercicio: ";
-                cin >> series;                
+            while (!(cin >> series) || series <= 0){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Ingrese una cantidad mayor a 0 para las series del ejercicio: ";             
             }
         }
         // Se ingresa la cantidad de Repiticiones
         void setRepeticiones(){
             cout << "Ingrese la cantidad de repeticiones del ejercicio: ";
-            cin >> repeticiones;
-            while (repeticiones <= 0){
-                cout << "Ingrese una cantidad de repeticiones mayor a 0 para el ejercicio";
-                cin >> repeticiones;                
+            while (!(cin >> repeticiones) || repeticiones <= 0){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Ingrese una cantidad de repeticiones mayor a 0 para el ejercicio";          
             }
         }
         // Se ingresa la cantidad de peso
         void setPeso(){
             cout << "Ingrese el peso que utilizara en el ejercicio en KG: ";
-            cin >> peso;
-            while (peso <= 0){
-                cout << "Ingrese un peso mayor a 0 para el ejercicio: ";
-                cin >> peso;                
+            while (!(cin >> peso) || peso <= 0){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Ingrese un peso mayor a 0 para el ejercicio: ";               
             }
         }  
 

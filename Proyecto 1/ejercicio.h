@@ -1,6 +1,7 @@
 #pragma once // investigar que chota es
 #include <iostream>
 #include <string>
+#include <limits>
 using namespace std;
 
 class Ejercicio{
@@ -19,10 +20,10 @@ class Ejercicio{
         //Setters
         void setID(){
             cout << "Ingrese ID del ejercicio: ";
-            cin >> ID;
-            while (ID <= 0){
-                cout << "Ingrese un numero mayor a 0 para el ID del ejercicio";
-                cin >> ID;                
+            while (!(cin >> ID) || ID <= 0){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Ingrese un numero mayor a 0 para el ID del ejercicio";             
             }
         }
 
@@ -55,10 +56,10 @@ class Ejercicio{
 
         void setTiempo(){
             cout << "Ingrese el tiempo estimado de duracion del ejercicio en minutos: ";
-            cin >> tiempo;
-            while (tiempo <= 0){
+            while (!(cin >> tiempo) || tiempo <= 0){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Tiempo ingresado invalido, un tiempo mayor a 0 minutos: ";
-                cin >> tiempo; 
             }
         }
 

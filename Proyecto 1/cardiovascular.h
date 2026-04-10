@@ -2,6 +2,7 @@
 #include "ejercicio.h"
 #include <iostream>
 #include <string>
+#include <limits>
 using namespace std;
 
 class Cardiovascular : public Ejercicio{
@@ -28,19 +29,19 @@ class Cardiovascular : public Ejercicio{
         //Se ingresa la distacia recorrida
         void setDistancia(){
             cout << "Ingrese la distancia del ejercicio en metros: ";
-            cin >> distancia;
-            while (distancia <= 0){
+            while (!(cin >> distancia) || distancia <= 0){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Distancia ingresada invalida, ingrese una distancia mayor a 0 metros: ";
-                cin >> distancia; 
             }
         }            
         // Se ingresa la velocidad promedio del ejercicio
         void setVelocidad(){
             cout << "Ingrese la velocidad del ejercicio en m/s: ";
-            cin >> velocidad;
-            while (velocidad <= 0){
+            while (!(cin >> velocidad) || velocidad <= 0){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "Velocidad ingresada invalida, ingrese una velocidad mayor a 0 m/s: ";
-                cin >> velocidad;
             }
         }               
 
