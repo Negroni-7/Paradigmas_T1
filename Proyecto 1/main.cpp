@@ -31,9 +31,9 @@ int buscarEjerciciosPorID(int id);
 void mostrarListaEjercicios();
 
 int main() {
-    cout << "---------------------------------------" << endl;
-    cout << "Sistema de Gestion de Entrenamiento cr7" << endl;
-    cout << "---------------------------------------" << endl;
+    cout << "-----------------------------------" << endl;
+    cout << "Sistema de Gestion de Entrenamiento" << endl;
+    cout << "-----------------------------------" << endl;
     menuPrincipal();
     return 0;
 }
@@ -79,7 +79,7 @@ void menuEjercicios() {
     } while (opcion != 5);
 }
 
-void menuRutnias() {
+void menuRutinas() {
     int opcion;
     do {
         cout << "\n------ GESTION DE RUTINAS ------" << endl;
