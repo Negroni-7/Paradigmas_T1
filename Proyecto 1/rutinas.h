@@ -1,5 +1,7 @@
 #pragma once // investigar que chota es
 #include "ejercicio.h"
+#include "cardiovascular.h"
+#include "fuerza.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -45,9 +47,8 @@ public:
     }
 
     void mostrartiempoTotal(){
-        cout << "\nTiempo total de la rutina: "
-             << calcularTiempoTotal()
-             << " minutos" << endl;
+           float total = TiempoTotal();
+           cout << "\nTiempo total de la rutina: " << total << " minutos" << endl;
     }
 };
 

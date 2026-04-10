@@ -57,7 +57,7 @@ class Fuerza : public Ejercicio{
         }  
 
         int getSeries(){
-            return serie;
+            return series;
         }
 
         int getRepeticiones(){
