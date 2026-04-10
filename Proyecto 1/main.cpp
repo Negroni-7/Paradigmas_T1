@@ -45,8 +45,7 @@ void menuPrincipal (){
         cout << "1. Gestion de Ejercicios" << endl;
         cout << "2. Gestion de Rutinas" << endl;
         cout << "3. Salir" << endl;
-        cout << "Seleccione una opcion: "
-
+        cout << "Seleccione una opcion: ";
         switch (opcion) {
             case 1: menuEjercicios(); break;
             case 2: menuRutinas(); break;
@@ -66,13 +65,12 @@ void menuEjercicios() {
         cout << "4. Listar ejercicios por intensidad" << endl;
         cout << "5. Vover al menu principal" << endl;
         cout << "Seleccione una opcion: ";
-        cinn >> opcion;
-
+        cin >> opcion;
         switch (opcion){
         case 1: registrarEjercicio(); break;
         case 2: eliminarEjercicio(); break;
         case 3: consultarEjercicio(); break;
-        case 4: listarPorIntensidad() break;
+        case 4: listarPorIntensidad(); break;
         case 5: break;
         default: cout << "Opcion invalida, intente nuevamente." << endl;
         }
@@ -88,19 +86,18 @@ void menuRutinas() {
         cout << "3. Volver al menu principal" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
-
         switch (opcion){
             case 1: crearRutina(); break;
             case 2: consultarRutina(); break;
             case 3: break;
             default: cout << "Opcion invalida, intente nuevamente." << endl;
         }
-    } while (opcion != 3)
+    } while (opcion != 3);
 }
 
 void registrarEjercicio() {
-    if (cantEjercicios >= MAX_EJERCICIO) {
-        cout << "Se ha alcanzado el maximo de ejercicios registrados (" << MAX_EJERCICIOS << ")." endl;
+    if (cantEjercicios >= MAX_EJERCICIOS) {
+        cout << "Se ha alcanzado el maximo de ejercicios registrados (" << MAX_EJERCICIOS << ")." << endl;
         return;  
     }
 
@@ -111,12 +108,11 @@ void registrarEjercicio() {
     cout << "2. Fuerza" << endl;
     cout << "Seleccione el tipo: ";
     cin >> tipoEjercicio;
-
     if (tipoEjercicio == 1) {
-        ejercicio[canEjercicios] = new Cardiovascular();
+        ejercicios[cantEjercicios] = new Cardiovascular();
         cantEjercicios++;
         cout << "\n Ejercicio cardiovascular registrado correctamente." << endl;
-    } else if (tipoEjercicios == 2) {
+    } else if (tipoEjercicio == 2) {
         ejercicios[cantEjercicios] = new Fuerza();
         cantEjercicios++;
         cout << "\n Ejercicio de fuerza registrado correctamente." << endl;
@@ -127,10 +123,10 @@ void registrarEjercicio() {
 
 void eliminarEjercicio() {
     if (cantEjercicios == 0) {
-        cout zz "No hay ejercicios registrados." << endl;
+        cout << "No hay ejercicios registrados." << endl;
         return;
     }
-    mostrarLsitaEjercicios();
+    mostrarListaEjercicios();
 
     int id;
     cout << "\n Ingrese el ID del ejercicio a eliminar: ";
@@ -155,13 +151,13 @@ void consultarEjercicio() {
         cout << "No hay ejercicios registrados." << endl;
         return;
     }
-    mostrarLsitaEjercicios();
+    mostrarListaEjercicios();
 
     int id;
     cout << "\n Ingrese el ID del ejercicio a consultar: ";
     cin >> id;
 
-    int indice = buscarEJercicioPorID(id);
+    int indice = buscarEjerciciosPorID(id);
 
     if (indice == -1){
         cout << "No se encontro un ejercicio con ID " << id << "." << endl;
@@ -175,7 +171,7 @@ void consultarEjercicio() {
     cout << "Tiempo:           " << e->getTiempo() << " minutos" << endl;
     cout << "Descripcion:      " << e->getDescripcion() << endl;
     cout << "Gasto base:       " << e->getGastoBase() << " cal" << endl;
-    cout << "Gasto energetico: " << e->CalcularGastoEnergetico() << " cal" << endl;
+    cout << "Gasto energetico: " << e->calcularGastoEnergetico() << " cal" << endl;
 
     Cardiovascular* cardio = dynamic_cast<Cardiovascular*>(e);
     if (cardio != nullptr) {
@@ -184,7 +180,7 @@ void consultarEjercicio() {
         cout << "Velocidad:        " << cardio->getVelocidad() << " m/s" << endl;
     }
 
-    Fuerza* fuerza = dynamic_cast>Fuerza*>(e);
+    Fuerza* fuerza = dynamic_cast<Fuerza*>(e);
     if (fuerza != nullptr) {
         cout << "Tipo:             Fuerza" << endl;
         cout << "Series:           " << fuerza->getSeries() << endl;
@@ -192,4 +188,3 @@ void consultarEjercicio() {
         cout << "Peso:             " << fuerza->getPeso() << " kg" << endl;
     }
 }
-a
