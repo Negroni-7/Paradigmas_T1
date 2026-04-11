@@ -16,15 +16,17 @@ class Ejercicio{
     public:
     //constructor
         Ejercicio() : ID(0), nombre(""), intensidad(0), tiempo(0), descripcion(""), gastoBase(0), gastoEnergetico(0) {}
+        Ejercicio(int id, string nom, int intens, float tpo, string desc)
+            : ID(id), nombre(nom), intensidad(intens), tiempo(tpo), descripcion(desc) {
+            gastoBase = tiempo * intensidad;
+            gastoEnergetico = 0;
+        }
         virtual float calcularGastoEnergetico() = 0; // virtual asociado a la polimorfismo 
         //Setters
-        void setID(){
-            cout << "Ingrese ID del ejercicio: ";
-            while (!(cin >> ID) || ID <= 0){
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Ingrese un numero mayor a 0 para el ID del ejercicio";             
-            }
+        void setID() {
+            static int contador = 0;
+            ID = ++contador;
+            cout << "ID asignado automaticamente: " << ID << endl;
         }
 
         void setNombre(){

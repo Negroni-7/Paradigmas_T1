@@ -27,6 +27,10 @@ class Fuerza : public Ejercicio{
             //Polimorfismo
             setGastoEnergetico();
         }
+        Fuerza(int id, string nom, int intens, float tpo, string desc, int ser, int rep, float pes)
+            : Ejercicio(id, nom, intens, tpo, desc), series(ser), repeticiones(rep), peso(pes) {
+            setGastoEnergetico();
+        }
         //Setters
         // Se ingresa la cantidad de serries realizadas
         void setSeries(){

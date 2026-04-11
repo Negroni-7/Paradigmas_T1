@@ -24,7 +24,10 @@ class Cardiovascular : public Ejercicio{
             //Polimorfismo
             setGastoEnergetico();
         }
-
+        Cardiovascular(int id, string nom, int intens, float tpo, string desc, float dist, float vel)
+            : Ejercicio(id, nom, intens, tpo, desc), distancia(dist), velocidad(vel) {
+            setGastoEnergetico();
+        }
         //Setters
         //Se ingresa la distacia recorrida
         void setDistancia(){

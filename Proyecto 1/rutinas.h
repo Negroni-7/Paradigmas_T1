@@ -10,60 +10,73 @@ using namespace std;
 
 class Rutina {
 private:
-    vector<Cardiovascular> cardio;
-    vector<Fuerza> fuerza;
+    int ID;
+    vector<Ejercicio*> ejercicios;
+    string nombre;
     int cantCardio;
     int cantFuerza;
 
 public:
     Rutina(){
-        cout << "...Creando rutina..." << endl;
-        cout << "Ingrese la cantidad de ejercicios cardiovasculares que desea agregar a la rutina (maximo 10): ";
-        while (!(cin >> cantCardio) || (cantCardio < 0 || cantCardio > 10)){
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Ingrese una cantidad de ejercicios cardiovasculares valida: ";
-        }
-        cout << "ingrese la cantidad de ejercicios de fuerza que desea agregar a la rutina (maximo 10): ";
-        while (!(cin >> cantFuerza) || (cantFuerza < 0 || cantFuerza > 10)){
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Ingrese una cantidad de ejercicios de fuerza valida: ";
-        }
-        for (int i = 0; i < cantCardio; i++){
-            cardio.push_back(Cardiovascular());
-        }
-        for (int i = 0; i < cantFuerza; i++){
-            fuerza.push_back(Fuerza());
-        }
+        setID();
+        setNombre();
+    }
+    //Setters
+    void setID() {
+        static int contador = 0;
+        ID = ++contador;
+        cout << "ID asignado automaticamente: " << ID << endl;
+}
+    void setNombre(){
+        cout << "Ingrese nombre de la rutina: ";
+        getline(cin >> ws, nombre); // get line permite ingresar espacios
     }
 
+    //Getters
+    int getID(){
+        return ID;
+    }
+
+    string getNombre(){
+        return nombre;
+    }
+
+    //Utilities
     void mostrarRutina(){
-        cout << "Rutina  con ejercicios Cardiovascular: " << endl;
-        for (int i = 0; i < cantCardio; i++){
-            cout << "Ejercicio " << i + 1 << ": " << cardio[i].getNombre() << ", Intensidad: " << cardio[i].getIntensidad() << ", Tiempo: " << cardio[i].getTiempo() << " minutos, Gasto Energetico: " << cardio[i].calcularGastoEnergetico() << " calorias" << endl;
+        if (ejercicios.empty()) {
+            cout << "La rutina no tiene ejercicios." << endl;
+            return;
         }
-        cout << "Rutina de Fuerza: " << endl;
-        for (int i = 0; i < cantFuerza; i++){
-            cout << "Ejercicio " << i + 1 << ": " << fuerza[i].getNombre() << ", Intensidad: " << fuerza[i].getIntensidad() << ", Tiempo: " << fuerza[i].getTiempo() << " minutos, Gasto Energetico: " << fuerza[i].calcularGastoEnergetico() << " calorias" << endl;
+        cout << "\n--- RUTINA: " << getNombre() << " ---" << endl;
+        for (int i = 0; i < (int)ejercicios.size(); i++){
+            cout << i + 1 << ". "
+                 << "ID: "        << ejercicios[i]->getID()
+                 << " | Nombre: " << ejercicios[i]->getNombre()
+                 << " | Intensidad: " << ejercicios[i]->getIntensidad()
+                 << " | Tiempo: " << ejercicios[i]->getTiempo() << " min"
+                 << " | Gasto: "  << ejercicios[i]->calcularGastoEnergetico() << " cal"
+                 << endl;
         }
+    mostrarTiempoTotal();
+    mostrarGastoTotal();
     }
 
-    float TiempoTotal(){
-        float tiempoTotal = 0;
-        for (int i = 0; i < cantCardio; i++){
-            tiempoTotal += cardio[i].getTiempo();
-        }
-        for (int i = 0; i < cantFuerza; i++){
-            tiempoTotal += fuerza[i].getTiempo();
-        }
-        return tiempoTotal;
+    void mostrarTiempoTotal(){
+        float total = 0;
+        for (int i = 0; i < (int)ejercicios.size(); i++)
+            total += ejercicios[i]->getTiempo();
+        cout << "Tiempo total de la rutina: " << total << " minutos" << endl;
     }
 
-    void mostrartiempoTotal(){
-        cout << "\nTiempo total de la rutina: "
-             << TiempoTotal()
-             << " minutos" << endl;
+    void mostrarGastoTotal(){
+        float total = 0;
+        for (int i = 0; i < (int)ejercicios.size(); i++)
+            total += ejercicios[i]->getGastoEnergetico();
+        cout << "Gasto total de la rutina: " << total << " calorias" << endl;
+    }
+
+    void agregarEjercicio(Ejercicio* e) {
+        ejercicios.push_back(e);
     }
 };
 

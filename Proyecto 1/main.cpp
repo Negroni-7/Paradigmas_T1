@@ -35,6 +35,17 @@ int main() {
     cout << "-----------------------------------" << endl;
     cout << "Sistema de Gestion de Entrenamiento" << endl;
     cout << "-----------------------------------" << endl;
+
+    // Cardiovasculares: (id, nombre, intensidad, tiempo, descripcion, distancia, velocidad)
+    ejercicios[cantEjercicios++] = new Cardiovascular(1, "Trote",    5,  30, "Trote ligero en parque",    3000, 2.5);
+    ejercicios[cantEjercicios++] = new Cardiovascular(2, "Ciclismo", 8,  45, "Bicicleta a ritmo moderado",15000, 5.5);
+    ejercicios[cantEjercicios++] = new Cardiovascular(3, "Natacion", 12, 60, "Nado continuo en piscina",  2000, 1.2);
+
+    // Fuerza: (id, nombre, intensidad, tiempo, descripcion, series, repeticiones, peso)
+    ejercicios[cantEjercicios++] = new Fuerza(4, "Sentadilla",    8,  40, "Sentadilla con barra",    4, 12, 60.0);
+    ejercicios[cantEjercicios++] = new Fuerza(5, "Press banca",   12, 45, "Press banca plano",       4, 10, 80.0);
+    ejercicios[cantEjercicios++] = new Fuerza(6, "Peso muerto",   15, 50, "Peso muerto convencional", 5, 8,  100.0);
+
     menuPrincipal();
     return 0;
 }
@@ -48,7 +59,7 @@ void menuPrincipal (){
         cout << "3. Salir" << endl;
         cout << "Seleccione una opcion: ";
         cin >> opcion;
-        switch (opcion) {
+        switch (opcion){
             case 1: menuEjercicios(); break;
             case 2: menuRutinas(); break;
             case 3: cout << "Saliendo Adios Usuario" << endl; break;
@@ -57,7 +68,7 @@ void menuPrincipal (){
     } while (opcion != 3);
 }
 
-void menuEjercicios() {
+void menuEjercicios(){
     int opcion;
     do {
         cout << "\n------ GESTION DE EJERCICIOS ------" << endl;
@@ -79,7 +90,7 @@ void menuEjercicios() {
     } while (opcion != 5);
 }
 
-void menuRutinas() {
+void menuRutinas(){
     int opcion;
     do {
         cout << "\n------ GESTION DE RUTINAS ------" << endl;
@@ -97,8 +108,8 @@ void menuRutinas() {
     } while (opcion != 3);
 }
 
-void registrarEjercicios() {
-    if (cantEjercicios >= MAX_EJERCICIOS) {
+void registrarEjercicios(){
+    if (cantEjercicios >= MAX_EJERCICIOS){
         cout << "Se ha alcanzado el maximo de ejercicios registrados (" << MAX_EJERCICIOS << ")." << endl;
         return;  
     }
@@ -110,11 +121,11 @@ void registrarEjercicios() {
     cout << "2. Fuerza" << endl;
     cout << "Seleccione el tipo: ";
     cin >> tipoEjercicio;
-    if (tipoEjercicio == 1) {
+    if (tipoEjercicio == 1){
         ejercicios[cantEjercicios] = new Cardiovascular();
         cantEjercicios++;
         cout << "\n Ejercicio cardiovascular registrado correctamente." << endl;
-    } else if (tipoEjercicio == 2) {
+    } else if (tipoEjercicio == 2){
         ejercicios[cantEjercicios] = new Fuerza();
         cantEjercicios++;
         cout << "\n Ejercicio de fuerza registrado correctamente." << endl;
@@ -123,8 +134,8 @@ void registrarEjercicios() {
     }
 }
 
-void eliminarEjercicios() {
-    if (cantEjercicios == 0) {
+void eliminarEjercicios(){
+    if (cantEjercicios == 0){
         cout << "No hay ejercicios registrados." << endl;
         return;
     }
@@ -135,7 +146,7 @@ void eliminarEjercicios() {
     cin >> id;
     int indice = buscarEjerciciosPorID(id);
 
-    if (indice == -1) {
+    if (indice == -1){
         cout << "No se encontro un ejercicio con ID " << id << "." << endl;
         return;
     }
@@ -148,19 +159,16 @@ void eliminarEjercicios() {
     cout << "Ejercicio eliminado correctamente." << endl;
 }
 
-void consultarEjercicios() {
-    if (cantEjercicios == 0) {
+void consultarEjercicios(){
+    if (cantEjercicios == 0){
         cout << "No hay ejercicios registrados." << endl;
         return;
     }
     mostrarListaEjercicios();
-
     int id;
     cout << "\n Ingrese el ID del ejercicio a consultar: ";
     cin >> id;
-
     int indice = buscarEjerciciosPorID(id);
-
     if (indice == -1){
         cout << "No se encontro un ejercicio con ID " << id << "." << endl;
         return;
@@ -176,14 +184,14 @@ void consultarEjercicios() {
     cout << "Gasto energetico: " << e->calcularGastoEnergetico() << " cal" << endl;
 
     Cardiovascular* cardio = dynamic_cast<Cardiovascular*>(e);
-    if (cardio != nullptr) {
+    if (cardio != nullptr){
         cout << "Tipo:             Cardiovascular" << endl;
         cout << "Distancia:        " << cardio->getDistancia() << " metros" << endl;
         cout << "Velocidad:        " << cardio->getVelocidad() << " m/s" << endl;
     }
 
     Fuerza* fuerza = dynamic_cast<Fuerza*>(e);
-    if (fuerza != nullptr) {
+    if (fuerza != nullptr){
         cout << "Tipo:             Fuerza" << endl;
         cout << "Series:           " << fuerza->getSeries() << endl;
         cout << "Repeticiones:     " << fuerza->getRepeticiones() << endl;
@@ -191,55 +199,56 @@ void consultarEjercicios() {
     }
 }
 
-int buscarEjerciciosPorID(int id) {
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getID() == id) return i;
+int buscarEjerciciosPorID(int id){
+    for (int i = 0; i < cantEjercicios; i++){
+        if (ejercicios[i]->getID() == id) 
+            return i;
     }
     return -1;
 }
 
-void mostrarListaEjercicios() {
+void mostrarListaEjercicios(){
     cout << "\n--- LISTA DE EJERCICIOS ---" << endl;
     for(int i = 0; i < cantEjercicios; i++){
         cout << "ID: " << ejercicios[i]->getID()
              << " | Nombre: " << ejercicios[i]->getNombre() << endl;
     }
 }
-void listarPorIntensidad() {
+void listarPorIntensidad(){
 
-    if ( cantEjercicios == 0 ) {
+    if ( cantEjercicios == 0 ){
         cout << "No hay ejercicios registrados." << endl;
         return;
     }
     int maxIntensidad = 0;
     Ejercicio* listaAux[MAX_EJERCICIOS];
 
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getIntensidad() == 5) {
+    for (int i = 0; i < cantEjercicios; i++){
+        if (ejercicios[i]->getIntensidad() == 5){
             cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
                  << " | ID: " << ejercicios[i]->getID()
                  << " | Nombre: " << ejercicios[i]->getNombre() << endl;
         }
     }
 
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getIntensidad() == 8) {
+    for (int i = 0; i < cantEjercicios; i++){
+        if (ejercicios[i]->getIntensidad() == 8){
             cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
                  << " | ID: " << ejercicios[i]->getID()
                  << " | Nombre: " << ejercicios[i]->getNombre() << endl;
         }
     }
 
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getIntensidad() == 12) {
+    for (int i = 0; i < cantEjercicios; i++){
+        if (ejercicios[i]->getIntensidad() == 12){
             cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
                  << " | ID: " << ejercicios[i]->getID()
                  << " | Nombre: " << ejercicios[i]->getNombre() << endl;
         }
     }
 
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getIntensidad() == 15) {
+    for (int i = 0; i < cantEjercicios; i++){
+        if (ejercicios[i]->getIntensidad() == 15){
             cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
                  << " | ID: " << ejercicios[i]->getID()
                  << " | Nombre: " << ejercicios[i]->getNombre() << endl;
@@ -253,9 +262,52 @@ void crearRutina(){
         cout << "No se pueden ingresar mas rutinar, se llego al maximo." << endl;
         return; 
     }
-    rutinas[cantRutinas] = new Rutina;
+    if (cantEjercicios == 0){
+        cout << "No hay ejercicios registrados, registre ejercicios para crear una rutina." << endl;
+        return;
+    }
+    rutinas[cantRutinas] = new Rutina();
+    int opcion;
+    do {
+        mostrarListaEjercicios();
+        cout << "\nIngrese el ID del ejercicio a agregar (0 para terminar): ";
+        cin >> opcion;
+
+        if (opcion == 0) {
+            break;
+        }
+        int indice = buscarEjerciciosPorID(opcion);
+        if (indice == -1){
+            cout << "No se encontro un ejercicio con ID " << opcion << "." << endl;
+        } 
+        else{
+            rutinas[cantRutinas]->agregarEjercicio(ejercicios[indice]);
+            cout << "Ejercicio '" << ejercicios[indice]->getNombre() << "' agregado." << endl;
+        }
+    } while (true);    
     cantRutinas++;
     cout << "Rutina creada exitosamente." << endl;
 }
 
-void consultarRutina()        { cout << "Por implementar..." << endl; }
+
+void consultarRutina(){
+    if (cantRutinas == 0){
+        cout << "No hay rutinas registrada." << endl;
+        return;
+    }
+    cout << "\n--- LISTA RUTINAS ---" << endl;
+    for(int i = 0; i < cantRutinas; i++){
+        cout << "ID: " << rutinas[i]->getID()
+             << " | Nombre: " << rutinas[i]->getNombre() << endl;
+    }
+    int id;
+    cout << "\nIngrese el ID de la rutina a consultar: ";
+    cin >> id;
+    for (int i = 0; i < cantRutinas; i++){
+        if (rutinas[i]->getID() == id) {
+            rutinas[i]->mostrarRutina();
+            return;
+        }
+    }
+    cout << "No se encontro una rutina con ID " << id << "." << endl;
+}

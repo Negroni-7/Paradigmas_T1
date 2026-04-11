@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/ichkote/Documentos/UNAB/Paradigmas_T1",
-      "program": "/home/ichkote/Documentos/UNAB/Paradigmas_T1/build/Debug/outDebug",
+      "cwd": "/home/ichkote/Documentos/UNAB/Paradigmas_T1/Proyecto 1",
+      "program": "/home/ichkote/Documentos/UNAB/Paradigmas_T1/Proyecto 1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
