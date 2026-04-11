@@ -25,7 +25,7 @@ class Ejercicio{
         virtual float calcularGastoEnergetico() = 0; // virtual asociado a la polimorfismo 
         //Setters
         void setID() {
-            static int contador = 0;
+            static int contador = 6;
             ID = ++contador;
             cout << "ID asignado automáticamente: " << ID << endl;
         }

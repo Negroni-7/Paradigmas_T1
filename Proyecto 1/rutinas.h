@@ -13,6 +13,7 @@ private:
     int ID;
     vector<Ejercicio*> ejercicios;
     string nombre;
+    int cantEjercicios;
 
 public:
     Rutina(){
@@ -97,6 +98,15 @@ public:
 
     void agregarEjercicio(Ejercicio* e) {
         ejercicios.push_back(e);
+    }
+
+    bool revisarEjercicio(Ejercicio* e) {
+        for (int i = 0; i < (int)ejercicios.size(); i++) {
+            if (ejercicios[i] == e) {
+                return true;
+            }
+        }
+        return false;
     }
 };
 

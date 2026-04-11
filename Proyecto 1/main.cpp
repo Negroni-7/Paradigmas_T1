@@ -3,6 +3,9 @@
 #include "cardiovascular.h"
 #include "fuerza.h"
 #include "rutinas.h"
+#include <clocale>
+#include <wchar.h>
+#include <windows.h>
 
 using namespace std;
 
@@ -32,6 +35,9 @@ int buscarEjerciciosPorID(int id);
 void mostrarListaEjercicios();
 
 int main() {
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     cout << "-----------------------------------" << endl;
     cout << "Sistema de Gestión de Entrenamiento" << endl;
     cout << "-----------------------------------" << endl;
@@ -74,7 +80,7 @@ void menuEjercicios(){
         cout << "\n------ GESTIÓN DE EJERCICIOS ------" << endl;
         cout << "1. Registrar nuevo ejercicio" << endl;
         cout << "2. Eliminar ejercicio" << endl;
-        cout << "3. Consultar ejercicio" << endl;
+        cout << "3. Consultar ejercicios" << endl;
         cout << "4. Listar ejercicios por intensidad" << endl;
         cout << "5. Volver al menu principal" << endl;
         cout << "Seleccione una opción: ";
@@ -148,6 +154,20 @@ void eliminarEjercicios(){
 
     if (indice == -1){
         cout << "No se encontró un ejercicio con ID " << id << "." << endl;
+        return;
+    }
+
+    Ejercicio* aux = ejercicios[indice];
+    bool existe = false;
+
+    for (int i = 0; i < cantRutinas; i++) {
+        if (rutinas[i]->revisarEjercicio(aux) == true) {
+            existe = true;
+        }
+    }
+
+    if (existe) {
+        cout << "No se puede eliminar este ejercicio, ya que se encuentra en uso en una rutina." << endl;
         return;
     }
 
