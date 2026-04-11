@@ -217,3 +217,5 @@ void crearRutina(){
 }
 
 void consultarRutina()        { cout << "Por implementar..." << endl; }
+
+//pablo qlo
