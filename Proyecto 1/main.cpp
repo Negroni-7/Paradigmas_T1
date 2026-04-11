@@ -177,7 +177,7 @@ void consultarEjercicios(){
     cout << "\n--- INFORMACION DEL EJERCICIO ---" << endl;
     cout << "ID:               " << e->getID() << endl;
     cout << "Nombre:           " << e->getNombre() << endl;
-    cout << "Intensidad:       " << e->getIntensidad() << endl;
+    cout << "Intensidad:       " << e->getIntensidadString() << endl;
     cout << "Tiempo:           " << e->getTiempo() << " minutos" << endl;
     cout << "Descripcion:      " << e->getDescripcion() << endl;
     cout << "Gasto base:       " << e->getGastoBase() << " cal" << endl;
