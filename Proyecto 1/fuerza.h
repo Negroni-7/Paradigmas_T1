@@ -48,12 +48,12 @@ class Fuerza : public Ejercicio{
             while (!(cin >> repeticiones) || repeticiones <= 0){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Ingrese una cantidad de repeticiones mayor a 0 para el ejercicio";          
+                cout << "Ingrese una cantidad de repeticiones mayor a 0 para el ejercicio.";
             }
         }
         // Se ingresa la cantidad de peso
         void setPeso(){
-            cout << "Ingrese el peso que utilizara en el ejercicio en KG: ";
+            cout << "Ingrese el peso que utilizará en el ejercicio en KG: ";
             while (!(cin >> peso) || peso <= 0){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -73,7 +73,7 @@ class Fuerza : public Ejercicio{
             return peso;
         }
 
-        // El override sobreescribe la funcion original para realizar un cambio del valor 0
+        // El override sobreescribe la función original para realizar un cambio del valor 0
         float calcularGastoEnergetico() override {
             return getGastoBase() + (series * repeticiones * peso * 0.1);
         }

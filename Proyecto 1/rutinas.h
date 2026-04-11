@@ -23,7 +23,7 @@ public:
     void setID() {
         static int contador = 0;
         ID = ++contador;
-        cout << "ID asignado automaticamente: " << ID << endl;
+        cout << "ID asignado automáticamente: " << ID << endl;
 }
     void setNombre(){
         cout << "Ingrese nombre de la rutina: ";
@@ -92,7 +92,7 @@ public:
         float total = 0;
         for (int i = 0; i < (int)ejercicios.size(); i++)
             total += ejercicios[i]->getGastoEnergetico();
-        cout << "Gasto total de la rutina: " << total << " calorias" << endl;
+        cout << "Gasto total de la rutina: " << total << " calorías" << endl;
     }
 
     void agregarEjercicio(Ejercicio* e) {
