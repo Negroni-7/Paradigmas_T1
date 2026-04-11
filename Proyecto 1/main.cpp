@@ -257,7 +257,7 @@ void listarPorIntensidad(){
 
 void crearRutina(){
     if (cantRutinas >= MAX_RUTINAS){
-        cout << "No se pueden ingresar más rutinas, se llego al máximo." << endl;
+        cout << "No se pueden ingresar más rutinas, se llegó al máximo." << endl;
         return; 
     }
     if (cantEjercicios == 0){
