@@ -206,5 +206,14 @@ void mostrarListaEjercicios() {
     }
 }
 void listarPorIntensidad()    { cout << "Por implementar..." << endl; }
-void crearRutina()            { cout << "Por implementar..." << endl; }
+void crearRutina(){
+    if (cantRutinas >= MAX_RUTINAS){
+        cout << "No se pueden ingresar mas rutinar, se llego al maximo." << endl;
+        return; 
+    }
+    rutinas[cantRutinas] = new Rutina;
+    cantRutinas++;
+    cout << "Rutina creada exitosamente." << endl;
+}
+
 void consultarRutina()        { cout << "Por implementar..." << endl; }
