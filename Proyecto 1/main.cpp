@@ -198,7 +198,13 @@ int buscarEjerciciosPorID(int id) {
     return -1;
 }
 
-void mostrarListaEjercicios() { cout << "Por implementar..." << endl; }
+void mostrarListaEjercicios() {
+    cout << "\n--- LISTA DE EJERCICIOS ---" << endl;
+    for(int i = 0; i < cantEjercicios; i++){
+        cout << "ID: " << ejercicios[i]->getID()
+             << " | Nombre: " << ejercicios[i]->getNombre() << endl;
+    }
+}
 void listarPorIntensidad()    { cout << "Por implementar..." << endl; }
 void crearRutina()            { cout << "Por implementar..." << endl; }
 void consultarRutina()        { cout << "Por implementar..." << endl; }
