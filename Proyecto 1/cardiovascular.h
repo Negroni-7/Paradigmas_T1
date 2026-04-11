@@ -35,7 +35,7 @@ class Cardiovascular : public Ejercicio{
             while (!(cin >> distancia) || distancia <= 0){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Distancia ingresada invalida, ingrese una distancia mayor a 0 metros: ";
+                cout << "Distancia ingresada inválida, ingrese una distancia mayor a 0 metros: ";
             }
         }            
         // Se ingresa la velocidad promedio del ejercicio
@@ -44,7 +44,7 @@ class Cardiovascular : public Ejercicio{
             while (!(cin >> velocidad) || velocidad <= 0){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Velocidad ingresada invalida, ingrese una velocidad mayor a 0 m/s: ";
+                cout << "Velocidad ingresada inválida, ingrese una velocidad mayor a 0 m/s: ";
             }
         }               
 

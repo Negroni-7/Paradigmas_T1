@@ -1,10 +1,10 @@
-#pragma once // investigar que chota es
+#pragma once
 #include "ejercicio.h" // Asi se importa en c++
 #include <iostream>
 #include <string>
 #include <limits>
 using namespace std;
-// Aqui se crea la clase + se agrega la que se importa
+// Aquí se crea la clase + se agrega la que se importa
 class Fuerza : public Ejercicio{
     private:
         int series;
@@ -32,10 +32,10 @@ class Fuerza : public Ejercicio{
             setGastoEnergetico();
         }
         //Setters
-        // Se ingresa la cantidad de serries realizadas
+        // Se ingresa la cantidad de series realizadas
         void setSeries(){
             cout << "Ingrese la cantidad de series: ";
-            // Se crea un bucle para que determine un numero mayor a cero y no proboque errores en el calculo
+            // Se crea un bucle para que determine un número mayor a cero y no provoque errores en el calculo
             while (!(cin >> series) || series <= 0){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');

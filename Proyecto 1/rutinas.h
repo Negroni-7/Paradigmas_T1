@@ -1,4 +1,4 @@
-#pragma once // investigar que chota es
+#pragma once
 #include "ejercicio.h"
 #include "cardiovascular.h"
 #include "fuerza.h"
