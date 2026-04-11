@@ -48,15 +48,37 @@ public:
             return;
         }
         cout << "\n--- RUTINA: " << getNombre() << " ---" << endl;
+        int k = 1;
+        cout << " \n  Ejercicios de Fuerza \n" << endl;
         for (int i = 0; i < (int)ejercicios.size(); i++){
-            cout << i + 1 << ". "
-                 << "ID: "        << ejercicios[i]->getID()
-                 << " | Nombre: " << ejercicios[i]->getNombre()
-                 << " | Intensidad: " << ejercicios[i]->getIntensidad()
-                 << " | Tiempo: " << ejercicios[i]->getTiempo() << " min"
-                 << " | Gasto: "  << ejercicios[i]->calcularGastoEnergetico() << " cal"
-                 << endl;
+            Fuerza* fuerza = dynamic_cast<Fuerza*>(ejercicios[i]);
+            if (fuerza != nullptr) {
+                cout << k << ". "
+                     << "ID: "        << ejercicios[i]->getID()
+                     << " | Nombre: " << ejercicios[i]->getNombre()
+                     << " | Intensidad: " << ejercicios[i]->getIntensidad()
+                     << " | Tiempo: " << ejercicios[i]->getTiempo() << " min"
+                     << " | Gasto: "  << ejercicios[i]->calcularGastoEnergetico() << " cal"
+                     << endl;
+                k++;
+            }
         }
+        cout << " \n Ejercicios cardiovasculares  \n" << endl;
+        for (int i = 0; i < (int)ejercicios.size(); i++) {
+            Cardiovascular* cardio = dynamic_cast<Cardiovascular*>(ejercicios[i]);
+            if (cardio != nullptr) {
+
+                cout << k << ". "
+                     << "ID: "        << ejercicios[i]->getID()
+                     << " | Nombre: " << ejercicios[i]->getNombre()
+                     << " | Intensidad: " << ejercicios[i]->getIntensidad()
+                     << " | Tiempo: " << ejercicios[i]->getTiempo() << " min"
+                     << " | Gasto: "  << ejercicios[i]->calcularGastoEnergetico() << " cal"
+                     << endl;
+                k++;
+            }
+        }
+    cout <<"\n\n"<< endl;
     mostrarTiempoTotal();
     mostrarGastoTotal();
     }
