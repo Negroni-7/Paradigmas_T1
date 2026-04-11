@@ -13,8 +13,6 @@ private:
     int ID;
     vector<Ejercicio*> ejercicios;
     string nombre;
-    int cantCardio;
-    int cantFuerza;
 
 public:
     Rutina(){
