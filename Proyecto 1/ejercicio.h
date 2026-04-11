@@ -34,7 +34,7 @@ class Ejercicio{
             cout << "Ingrese Nombre del ejercicio: ";
             getline(cin >> ws, nombre); // get line permite ingresar espacios
         }
-
+        //ingresa la intensidad del ejercicio.
         void setIntensidad(){
             string intens;
             cout << "Ingrese intensidad (Basico, Intermedio, Avanzado o Alto rendimiento): ";
@@ -56,7 +56,7 @@ class Ejercicio{
                 intensidad = 15;
             }
         }
-
+        //consulta cuanta duracion tendra el ejercicios en min y lo guarda
         void setTiempo(){
             cout << "Ingrese el tiempo estimado de duración del ejercicio en minutos: ";
             while (!(cin >> tiempo) || tiempo <= 0){
@@ -65,16 +65,16 @@ class Ejercicio{
                 cout << "Tiempo ingresado inválido, un tiempo mayor a 0 minutos: ";
             }
         }
-
+        //ingresa una descripcion del ejercicio
         void setDescripcion(){
             cout << "Ingrese la descripción del ejercicio: ";
             getline(cin >> ws, descripcion);
         }
-
+        //calcula el gasto base
         void setGastoBase(){
             gastoBase = tiempo * intensidad;
         }
-
+        //calcula el gasto energetico 
         void setGastoEnergetico(){
             gastoEnergetico = calcularGastoEnergetico();
         }   

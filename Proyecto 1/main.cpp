@@ -55,7 +55,7 @@ int main() {
     menuPrincipal();
     return 0;
 }
-
+//menu principal
 void menuPrincipal (){
     int opcion;
     do {
@@ -73,7 +73,7 @@ void menuPrincipal (){
         }
     } while (opcion != 3);
 }
-
+//menu de ejercicios
 void menuEjercicios(){
     int opcion;
     do {
@@ -95,7 +95,7 @@ void menuEjercicios(){
         }
     } while (opcion != 5);
 }
-
+//menu de rutina
 void menuRutinas(){
     int opcion;
     do {
@@ -113,7 +113,11 @@ void menuRutinas(){
         }
     } while (opcion != 3);
 }
-
+/*
+ve si el maximo de ejercicios esta superado, si esto no es asi
+consulta que tipo de ejercicio es y dependiendo de este lo crea llamando a 
+la clase.
+*/
 void registrarEjercicios(){
     if (cantEjercicios >= MAX_EJERCICIOS){
         cout << "Se ha alcanzado el máximo de ejercicios registrados (" << MAX_EJERCICIOS << ")." << endl;
@@ -139,7 +143,10 @@ void registrarEjercicios(){
         cout << "Tipo ejercicio inválido. No se registró ningún ejercicio." << endl;
     }
 }
-
+/*
+ve si existen ejercicios registrados, si esto es asi solicita
+el id y si este existe y si no esta dentro de una rutina lo elimina
+*/
 void eliminarEjercicios(){
     if (cantEjercicios == 0){
         cout << "No hay ejercicios registrados." << endl;
@@ -178,7 +185,10 @@ void eliminarEjercicios(){
     cantEjercicios--;
     cout << "Ejercicio eliminado correctamente." << endl;
 }
-
+/*
+ve si existen ejercicios registrados, si es asi solicita el id
+y si esta es correcta muestra su informacion de este.
+*/
 void consultarEjercicios(){
     if (cantEjercicios == 0){
         cout << "No hay ejercicios registrados." << endl;
@@ -218,7 +228,7 @@ void consultarEjercicios(){
         cout << "Peso:             " << fuerza->getPeso() << " kg" << endl;
     }
 }
-
+//busca ejercicio por su id
 int buscarEjerciciosPorID(int id){
     for (int i = 0; i < cantEjercicios; i++){
         if (ejercicios[i]->getID() == id) 
@@ -226,7 +236,7 @@ int buscarEjerciciosPorID(int id){
     }
     return -1;
 }
-
+//muestra una lista de ejercicios
 void mostrarListaEjercicios(){
     cout << "\n--- LISTA DE EJERCICIOS ---" << endl;
     for(int i = 0; i < cantEjercicios; i++){
@@ -234,6 +244,10 @@ void mostrarListaEjercicios(){
              << " | Nombre: " << ejercicios[i]->getNombre() << endl;
     }
 }
+/*
+Consulta si hay ejercicios, si esto es asi, muestra una lista de estos
+separandolos por su intensidad
+*/
 void listarPorIntensidad(){
 
     if ( cantEjercicios == 0 ){
@@ -274,7 +288,10 @@ void listarPorIntensidad(){
     }
 
 }
-
+/*
+ve si no excede la cantidad maxima de rutina y si hay ejercicio existentes.
+Luego de eso crea una rutina solicitando id de ejercicios para agregarlas a este.
+*/
 void crearRutina(){
     if (cantRutinas >= MAX_RUTINAS){
         cout << "No se pueden ingresar más rutinas, se llegó al máximo." << endl;
@@ -307,7 +324,10 @@ void crearRutina(){
     cout << "Rutina creada exitosamente." << endl;
 }
 
-
+/*
+se consulta si existen rutinas existentes, si es asi consulta la id de la rutina
+deseada, busca la id y muestra la informacion de la rutina.
+*/
 void consultarRutina(){
     if (cantRutinas == 0){
         cout << "No hay rutinas registradas." << endl;
