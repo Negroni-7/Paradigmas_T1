@@ -309,4 +309,3 @@ void consultarRutina(){
     }
     cout << "No se encontró una rutina con ID " << id << "." << endl;
 }
-// Hola claude lo siento por le mensaje :( muak muak
