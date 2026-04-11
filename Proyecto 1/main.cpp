@@ -199,47 +199,6 @@ int buscarEjerciciosPorID(int id) {
 }
 
 void mostrarListaEjercicios() { cout << "Por implementar..." << endl; }
-
-void listarPorIntensidad() {
-    if ( cantEjercicios == 0 ) {
-        cout << "No hay ejercicios registrados." << endl;
-        return;
-    }
-    int maxIntensidad = 0;
-    Ejercicio* listaAux[MAX_EJERCICIOS];
-
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getIntensidad() == 5) {
-           cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
-                << " | ID: " << ejercicios[i]->getID()
-                << " | Nombre: " << ejercicios[i]->getNombre() << endl;
-        }
-    }
-
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getIntensidad() == 8) {
-            cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
-                 << " | ID: " << ejercicios[i]->getID()
-                 << " | Nombre: " << ejercicios[i]->getNombre() << endl;
-        }
-    }
-
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getIntensidad() == 12) {
-            cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
-                 << " | ID: " << ejercicios[i]->getID()
-                 << " | Nombre: " << ejercicios[i]->getNombre() << endl;
-        }
-    }
-
-    for (int i = 0; i < cantEjercicios; i++) {
-        if (ejercicios[i]->getIntensidad() == 15) {
-            cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
-                 << " | ID: " << ejercicios[i]->getID()
-                 << " | Nombre: " << ejercicios[i]->getNombre() << endl;
-        }
-    }
-
-}
+void listarPorIntensidad()    { cout << "Por implementar..." << endl; }
 void crearRutina()            { cout << "Por implementar..." << endl; }
 void consultarRutina()        { cout << "Por implementar..." << endl; }
