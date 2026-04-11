@@ -90,6 +90,24 @@ class Ejercicio{
             return intensidad;
         }
 
+        string getIntensidadString() {
+            if (getIntensidad() == 5) {
+                return "Basico";
+            }
+
+            else if (getIntensidad() == 8) {
+                return "Intermedio";
+            }
+
+            else if (getIntensidad() == 12) {
+                return "Avanzado";
+            }
+
+            else {
+                return "Alto rendimiento";
+            }
+        }
+
         float getTiempo(){
             return tiempo;
         }

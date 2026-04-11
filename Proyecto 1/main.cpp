@@ -225,7 +225,7 @@ void listarPorIntensidad(){
 
     for (int i = 0; i < cantEjercicios; i++){
         if (ejercicios[i]->getIntensidad() == 5){
-            cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
+            cout << "Intensidad: "<< ejercicios[i]->getIntensidadString()
                  << " | ID: " << ejercicios[i]->getID()
                  << " | Nombre: " << ejercicios[i]->getNombre() << endl;
         }
@@ -233,7 +233,7 @@ void listarPorIntensidad(){
 
     for (int i = 0; i < cantEjercicios; i++){
         if (ejercicios[i]->getIntensidad() == 8){
-            cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
+            cout << "Intensidad: "<< ejercicios[i]->getIntensidadString()
                  << " | ID: " << ejercicios[i]->getID()
                  << " | Nombre: " << ejercicios[i]->getNombre() << endl;
         }
@@ -241,7 +241,7 @@ void listarPorIntensidad(){
 
     for (int i = 0; i < cantEjercicios; i++){
         if (ejercicios[i]->getIntensidad() == 12){
-            cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
+            cout << "Intensidad: "<< ejercicios[i]->getIntensidadString()
                  << " | ID: " << ejercicios[i]->getID()
                  << " | Nombre: " << ejercicios[i]->getNombre() << endl;
         }
@@ -249,7 +249,7 @@ void listarPorIntensidad(){
 
     for (int i = 0; i < cantEjercicios; i++){
         if (ejercicios[i]->getIntensidad() == 15){
-            cout << "Intensidad: "<< ejercicios[i]->getIntensidad()
+            cout << "Intensidad: "<< ejercicios[i]->getIntensidadString()
                  << " | ID: " << ejercicios[i]->getID()
                  << " | Nombre: " << ejercicios[i]->getNombre() << endl;
         }

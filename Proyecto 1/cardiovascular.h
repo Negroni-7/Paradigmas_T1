@@ -58,6 +58,6 @@ class Cardiovascular : public Ejercicio{
         }
 
         float calcularGastoEnergetico() override {
-            return getGastoBase() + (distancia * 10);
+            return getGastoBase() + (1 + getVelocidad()/10.0);
         }
 };

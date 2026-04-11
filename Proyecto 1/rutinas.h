@@ -56,7 +56,7 @@ public:
                 cout << k << ". "
                      << "ID: "        << ejercicios[i]->getID()
                      << " | Nombre: " << ejercicios[i]->getNombre()
-                     << " | Intensidad: " << ejercicios[i]->getIntensidad()
+                     << " | Intensidad: " << ejercicios[i]->getIntensidadString()
                      << " | Tiempo: " << ejercicios[i]->getTiempo() << " min"
                      << " | Gasto: "  << ejercicios[i]->calcularGastoEnergetico() << " cal"
                      << endl;
@@ -71,7 +71,7 @@ public:
                 cout << k << ". "
                      << "ID: "        << ejercicios[i]->getID()
                      << " | Nombre: " << ejercicios[i]->getNombre()
-                     << " | Intensidad: " << ejercicios[i]->getIntensidad()
+                     << " | Intensidad: " << ejercicios[i]->getIntensidadString()
                      << " | Tiempo: " << ejercicios[i]->getTiempo() << " min"
                      << " | Gasto: "  << ejercicios[i]->calcularGastoEnergetico() << " cal"
                      << endl;
