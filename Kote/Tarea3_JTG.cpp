@@ -147,6 +147,8 @@ int main() {
                 cout << "Saliendo del programa..." << endl;
                 break;
             default:
+                cin.clear();
+                cin.ignore(1000000, '\n');
                 cout << "Opcion no valida." << endl;
         }
     } while (opcion != 5);
