@@ -1,3 +1,10 @@
+// Fiona Catalina Castro Villarroel 21501220-4
+// José-Tomás Guzmán  Ilabel 21.132.176-8
+// Máximo Eduardo González Arriagada 21.978.604-2
+// Stefano Negroni Postiglione  21.945.448-1
+// Pablo Antonio Labra Jabre 21.280.591-2
+// Isabella Victoria Quintero González 25.868.144-4
+
 #pragma once // Mejora tiempos de compilación y evita errores de redefinición
 #include "ejercicio.h"
 #include <iostream>
