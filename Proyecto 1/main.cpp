@@ -11,7 +11,7 @@
 #include "fuerza.h"
 #include "rutinas.h"
 
-// Includes ocupados para que no den errores los tildes
+// Includes ocupados para que no den errores los tildes.
 #include <clocale>
 #include <wchar.h>
 #include <windows.h>
