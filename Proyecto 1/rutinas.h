@@ -5,7 +5,7 @@
 // Pablo Antonio Labra Jabre 21.280.591-2
 // Isabella Victoria Quintero González 25.868.144-4
 
-#pragma once
+#pragma once // Mejora tiempos de compilación y evita errores de redefinición
 #include "ejercicio.h"
 #include "cardiovascular.h"
 #include "fuerza.h"
@@ -14,6 +14,7 @@
 #include <vector>
 #include <limits>
 using namespace std;
+// Esta clase almacena el puntero a distintos ejercicios
 
 class Rutina {
 private:
@@ -27,7 +28,9 @@ public:
         setID();
         setNombre();
     }
+
     //Setters
+
     void setID() {
         static int contador = 0;
         ID = ++contador;
@@ -39,6 +42,7 @@ public:
     }
 
     //Getters
+
     int getID(){
         return ID;
     }
@@ -48,6 +52,7 @@ public:
     }
 
     //Utilities
+
     void mostrarRutina(){
         if (ejercicios.empty()) {
             cout << "La rutina no tiene ejercicios." << endl;
@@ -107,6 +112,8 @@ public:
         ejercicios.push_back(e);
     }
 
+    // Revisa si hay un ejercicio en la rutina
+    // Función ocupada en el gestor de ejercicios para poder borrar ejercicios
     bool revisarEjercicio(Ejercicio* e) {
         for (int i = 0; i < (int)ejercicios.size(); i++) {
             if (ejercicios[i] == e) {

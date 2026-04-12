@@ -10,6 +10,8 @@
 #include "cardiovascular.h"
 #include "fuerza.h"
 #include "rutinas.h"
+
+// Includes ocupados para que no den errores los tildes
 #include <clocale>
 #include <wchar.h>
 #include <windows.h>
@@ -29,26 +31,31 @@ int cantRutinas = 0;
 void menuPrincipal();
 void menuEjercicios();
 void menuRutinas();
+
 //Se gestiona los ejercicios
 void registrarEjercicios();
 void eliminarEjercicios();
 void consultarEjercicios();
 void listarPorIntensidad();
+
 //Se gestiona las Rutinas
 void crearRutina();
 void consultarRutina();
+
 //Utilidades
 int buscarEjerciciosPorID(int id);
 void mostrarListaEjercicios();
 
 int main() {
-
+    // Estas líneas permiten mostrar los tildes sin que hayan errores
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
+
     cout << "-----------------------------------" << endl;
     cout << "Sistema de Gestión de Entrenamiento" << endl;
     cout << "-----------------------------------" << endl;
 
+    // Ejercicios ya existentes sin que el usuario los agregue
     // Cardiovasculares: (id, nombre, intensidad, tiempo, descripción, distancia, velocidad)
     ejercicios[cantEjercicios++] = new Cardiovascular(1, "Trote",    5,  30, "Trote ligero en parque",    3000, 2.5);
     ejercicios[cantEjercicios++] = new Cardiovascular(2, "Ciclismo", 8,  45, "Bicicleta a ritmo moderado",15000, 5.5);
@@ -62,11 +69,12 @@ int main() {
     menuPrincipal();
     return 0;
 }
-//menu principal
+
+// Menú principal
 void menuPrincipal (){
     int opcion;
     do {
-        cout << "\n--------- MENU PRINCIPAL ---------" << endl;
+        cout << "\n--------- MENÚ PRINCIPAL ---------" << endl;
         cout << "1. Gestión de Ejercicios" << endl;
         cout << "2. Gestión de Rutinas" << endl;
         cout << "3. Salir" << endl;
@@ -80,7 +88,8 @@ void menuPrincipal (){
         }
     } while (opcion != 3);
 }
-//menu de ejercicios
+
+// Menú de ejercicios
 void menuEjercicios(){
     int opcion;
     do {
@@ -102,7 +111,8 @@ void menuEjercicios(){
         }
     } while (opcion != 5);
 }
-//menu de rutina
+
+// Menú de rutina
 void menuRutinas(){
     int opcion;
     do {
@@ -120,11 +130,13 @@ void menuRutinas(){
         }
     } while (opcion != 3);
 }
+
 /*
-ve si el maximo de ejercicios esta superado, si esto no es asi
+Ve si el maximo de ejercicios está superado, si esto no es asi
 consulta que tipo de ejercicio es y dependiendo de este lo crea llamando a 
 la clase.
 */
+
 void registrarEjercicios(){
     if (cantEjercicios >= MAX_EJERCICIOS){
         cout << "Se ha alcanzado el máximo de ejercicios registrados (" << MAX_EJERCICIOS << ")." << endl;
@@ -150,10 +162,12 @@ void registrarEjercicios(){
         cout << "Tipo ejercicio inválido. No se registró ningún ejercicio." << endl;
     }
 }
+
 /*
-ve si existen ejercicios registrados, si esto es asi solicita
+Ve si existen ejercicios registrados, si esto es asi solicita
 el id y si este existe y si no esta dentro de una rutina lo elimina
 */
+
 void eliminarEjercicios(){
     if (cantEjercicios == 0){
         cout << "No hay ejercicios registrados." << endl;
@@ -193,8 +207,8 @@ void eliminarEjercicios(){
     cout << "Ejercicio eliminado correctamente." << endl;
 }
 /*
-ve si existen ejercicios registrados, si es asi solicita el id
-y si esta es correcta muestra su informacion de este.
+Ve si existen ejercicios registrados, si es asi solicita el id
+y si esta es correcta muestra su información de este.
 */
 void consultarEjercicios(){
     if (cantEjercicios == 0){
@@ -235,7 +249,7 @@ void consultarEjercicios(){
         cout << "Peso:             " << fuerza->getPeso() << " kg" << endl;
     }
 }
-//busca ejercicio por su id
+// Busca ejercicio por su id
 int buscarEjerciciosPorID(int id){
     for (int i = 0; i < cantEjercicios; i++){
         if (ejercicios[i]->getID() == id) 
@@ -243,7 +257,7 @@ int buscarEjerciciosPorID(int id){
     }
     return -1;
 }
-//muestra una lista de ejercicios
+// Muestra una lista de ejercicios
 void mostrarListaEjercicios(){
     cout << "\n--- LISTA DE EJERCICIOS ---" << endl;
     for(int i = 0; i < cantEjercicios; i++){
@@ -252,7 +266,7 @@ void mostrarListaEjercicios(){
     }
 }
 /*
-Consulta si hay ejercicios, si esto es asi, muestra una lista de estos
+Consulta si hay ejercicios, si esto es así, muestra una lista de estos
 separandolos por su intensidad
 */
 void listarPorIntensidad(){
@@ -296,7 +310,7 @@ void listarPorIntensidad(){
 
 }
 /*
-ve si no excede la cantidad maxima de rutina y si hay ejercicio existentes.
+Ve si no excede la cantidad máxima de rutina y si hay ejercicio existentes.
 Luego de eso crea una rutina solicitando id de ejercicios para agregarlas a este.
 */
 void crearRutina(){
@@ -332,9 +346,10 @@ void crearRutina(){
 }
 
 /*
-se consulta si existen rutinas existentes, si es asi consulta la id de la rutina
-deseada, busca la id y muestra la informacion de la rutina.
+Se consulta si existen rutinas existentes, si es así, consulta la id de la rutina
+deseada, busca la id y muestra la información de la rutina.
 */
+
 void consultarRutina(){
     if (cantRutinas == 0){
         cout << "No hay rutinas registradas." << endl;

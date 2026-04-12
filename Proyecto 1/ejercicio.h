@@ -5,7 +5,7 @@
 // Pablo Antonio Labra Jabre 21.280.591-2
 // Isabella Victoria Quintero González 25.868.144-4
 
-#pragma once
+#pragma once // Mejora tiempos de compilación y evita errores de redefinición
 #include <iostream>
 #include <string>
 #include <limits>
@@ -29,8 +29,9 @@ class Ejercicio{
             gastoBase = tiempo * intensidad;
 
         }
-        virtual float calcularGastoEnergetico() = 0; // virtual asociado a la polimorfismo 
+        virtual float calcularGastoEnergetico() = 0; // virtual asociado a la polimorfismo
         //Setters
+
         void setID() {
             static int contador = 6;
             ID = ++contador;
@@ -84,8 +85,10 @@ class Ejercicio{
 
         void setGastoEnergetico(){
             gastoEnergetico = calcularGastoEnergetico();
-        }   
+        }
+
         //Getters
+
         int getID(){
             return ID;
         }
@@ -93,14 +96,14 @@ class Ejercicio{
         string getNombre(){
             return nombre;
         }
-
+        // Se obtiene el número de la intensidad que puede ser 5, 8, 12 o 15
         int getIntensidad(){
             return intensidad;
         }
-
+        // Se obtiene la intensiad como texto que puede ser Básico, Intermedio, Avanzado o Alto rendimiento
         string getIntensidadString() {
             if (getIntensidad() == 5) {
-                return "Basico";
+                return "Básico";
             }
 
             else if (getIntensidad() == 8) {

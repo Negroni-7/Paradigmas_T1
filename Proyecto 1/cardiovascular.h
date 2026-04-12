@@ -12,11 +12,14 @@
 #include <limits>
 using namespace std;
 
+// Clase Ejercicio con herencia de Ejercicio
+
 class Cardiovascular : public Ejercicio{
     private:
         float distancia;
         float velocidad;
     public:
+        // Aquí se setean tanto los atributos de la clase Ejercicio como los de clase Fuerza
         Cardiovascular() : Ejercicio(){
             //Heredados
             setID();

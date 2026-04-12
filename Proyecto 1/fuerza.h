@@ -5,20 +5,20 @@
 // Pablo Antonio Labra Jabre 21.280.591-2
 // Isabella Victoria Quintero González 25.868.144-4
 
-#pragma once
+#pragma once // Mejora tiempos de compilación y evita errores de redefinición
 #include "ejercicio.h" // Asi se importa en c++
 #include <iostream>
 #include <string>
 #include <limits>
 using namespace std;
-// Aquí se crea la clase + se agrega la que se importa
+// Aquí se crea la clase + se agrega herencia
 class Fuerza : public Ejercicio{
     private:
         int series;
         int repeticiones;
         float peso;
     public:
-        // Aqui se tienen que setear tanto como los seters de ejercicios como los nuevos
+        // Aquí se setean tanto los atributos de la clase Ejercicio como los de clase Fuerza
         Fuerza() : Ejercicio(){
             //Heredados
             setID();
@@ -67,7 +67,7 @@ class Fuerza : public Ejercicio{
                 cout << "Ingrese un peso mayor a 0 para el ejercicio: ";               
             }
         }  
-
+        // Getters
         int getSeries(){
             return series;
         }
