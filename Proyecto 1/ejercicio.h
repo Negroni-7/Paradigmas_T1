@@ -1,3 +1,10 @@
+// Fiona Catalina Castro Villarroel 21501220-4
+// José-Tomás Guzmán  Ilabel 21.132.176-8
+// Máximo Eduardo González Arriagada 21.978.604-2
+// Stefano Negroni Postiglione  21.945.448-1
+// Pablo Antonio Labra Jabre 21.280.591-2
+// Isabella Victoria Quintero González 25.868.144-4
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -14,7 +21,7 @@ class Ejercicio{
         float gastoBase;
         float gastoEnergetico;
     public:
-    //constructor
+        //constructor
         Ejercicio() : ID(0), nombre(""), intensidad(0), tiempo(0), descripcion(""), gastoBase(0), gastoEnergetico(0) {}
 
         Ejercicio(int id, string nom, int intens, float tpo, string desc)
