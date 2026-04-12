@@ -1,3 +1,9 @@
+// Fiona Catalina Castro Villarroel 21501220-4
+// José-Tomás Guzmán Ilabel 21.132.176-8
+// Máximo Eduardo González Arriagada 21.978.604-2
+// Stefano Negroni Postiglione  21.945.448-1
+// Pablo Antonio Labra Jabre 21.280.591-2
+// Isabella Victoria Quintero González 25.868.144-4
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,7 +17,7 @@ class Reserva_hotel{
         float Precio_por_noche;
     
     public:
-        // Constructor corregido 
+        // Constructor 
         Reserva_hotel(int num_reserva, string nom_cliente, string fch_entrada, int non_estadia, float prec_por_noche){
             Numero_reserva = num_reserva;
             Nombre_cliente = nom_cliente;
@@ -33,7 +39,7 @@ class Reserva_hotel{
         void setNocheEstadia(int _nocheEstadia) { Noche_estadia = _nocheEstadia; }
         void setPrecioPor_Noche(float _precioPor_Noche) { Precio_por_noche = _precioPor_Noche; }
         
-        //muestra de informacion
+        //Muestra la informacion de la reserva 
         void mostrarinformacion(){
             cout << "Informacion" << endl;
             cout << "Numero de reserva: " << Numero_reserva << endl;
@@ -49,15 +55,15 @@ class Reserva_hotel{
             Fecha_entrada = fecha_actualizada;
         }
         
-        //realiza el calculo del costo
+        //Calcula el costo total
         float calcular_costo_total(){
             return Precio_por_noche * Noche_estadia;
         }
 };//god
 
 int main(){
-    // Se le dio un nombre al objeto (miReserva) y se ajustaron los parametros
-    Reserva_hotel miReserva(67, "SIx el seven", "11-09-2001", 4, 1000.0);
+    //testeo del codigo usando variables propias 
+    Reserva_hotel miReserva(98, "Máximo González", "12-04-2026", 4, 1000.0);
     
     cout << " ESTADO INICIAL" << endl;
     miReserva.mostrarinformacion(); 
