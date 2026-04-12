@@ -1,8 +1,17 @@
+// Fiona Catalina Castro Villarroel 21501220-4
+// José-Tomás Guzmán  Ilabel 21.132.176-8
+// Máximo Eduardo González Arriagada 21.978.604-2
+// Stefano Negroni Postiglione  21.945.448-1
+// Pablo Antonio Labra Jabre 21.280.591-2
+// Isabella Victoria Quintero González 25.868.144-4
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
+
+//Deficion de la clase Calificaciones, con los tipos de variable propios encapsulados
 class Calificaciones{
     private:
         vector <float> calificaciones;
@@ -11,25 +20,13 @@ class Calificaciones{
         float cal_min;
         float cal_max;
     public:
-        //Constructor
+        //Constructor de la clase Calificaciones
         Calificaciones(){
             cantidad = 0;
             promedio = 0.0;
             cal_min = 0.0;
             cal_max = 0.0;
         }
-
-        void leerCalificaciones(){
-            setCantidad();
-            for (int i = 0; i < cantidad; i++){
-                setCalificaciones();
-            }
-            cout << "¡Notas ingresadas con exito!" << endl;
-            setPromedio();
-            setMaximo();
-            setMinimo();
-        }
-
         //Setters
         void setCantidad(){
             cout << "Ingrese cantidad de notas a ingresar: ";
@@ -50,7 +47,7 @@ class Calificaciones{
             }
             calificaciones.push_back(nota);
         }   
-
+        //Calcula el promedio de notas y lo establece en la variable promedio
         void setPromedio(){
             float prom = 0;
             if (cantidad == 0){
@@ -61,11 +58,11 @@ class Calificaciones{
             }
             promedio = prom/calificaciones.size();
         }
-
+        //Encuentra el valor maximo del vector y lo establece en la variable cal_max
         void setMaximo(){
             cal_max = *max_element(calificaciones.begin(), calificaciones.end());
         }
-        
+        //Encuentra el valor minimo del vector y lo establece en la variable cal_min
         void setMinimo(){
             cal_min = *min_element(calificaciones.begin(), calificaciones.end());
         }
@@ -97,7 +94,7 @@ class Calificaciones{
                 cout << n << " ";
             }
         }
-
+        //La funcion imprime por pantalla todas las notas mayores al promedio
         void listarCalificacionesSobrePromedio(){
             cout << "Notas mayores al promedio " << getPromedio() << endl;
             for (float n : calificaciones){
@@ -105,6 +102,17 @@ class Calificaciones{
                         cout << n << " ";
                     }
             }
+        }
+        //Establece la calificacion segun la cantidad de calificaciones, ademas de establecer el promedio el minimo y el maximo
+        void leerCalificaciones(){
+            setCantidad();
+            for (int i = 0; i < getCantidad(); i++){
+                setCalificaciones();
+            }
+            cout << "¡Notas ingresadas con exito!" << endl;
+            setPromedio();
+            setMaximo();
+            setMinimo();
         }
 
         void mostrarCalificacionMinima(){
@@ -120,6 +128,7 @@ class Calificaciones{
 int main() {
     Calificaciones calificaciones;
     int opcion;
+    //Menu de 5 opciones para utilizar el programa
     do {
         cout << "\n--- MENU CALIFICACIONES ---" << endl;
         cout << "1. Ingresar Notas" << endl;
