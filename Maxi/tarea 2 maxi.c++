@@ -12,12 +12,12 @@ class Reserva_hotel{
     
     public:
         // Constructor corregido 
-        Reserva_hotel(int num_reserva, string nom_cliente, string fch_entrada, int non_estadia, float prec_pornoche){
+        Reserva_hotel(int num_reserva, string nom_cliente, string fch_entrada, int non_estadia, float prec_por_noche){
             Numero_reserva = num_reserva;
             Nombre_cliente = nom_cliente;
             Fecha_entrada = fch_entrada;
             Noche_estadia = non_estadia;
-            Precio_por_noche = prec_pornoche;
+            Precio_por_noche = prec_por_noche;
         }
         
         //metodos getter
@@ -25,13 +25,13 @@ class Reserva_hotel{
         string getNombreCliente() { return Nombre_cliente; }
         string getFechaEntrada() { return Fecha_entrada; }
         int getNocheEstadia() { return Noche_estadia; }
-        float getPrecioPorNoche() { return Precio_por_noche; }
+        float getPrecioPor_Noche() { return Precio_por_noche; }
         
         //metodos setter
         void setNumeroReserva(int _numeroReserva) { Numero_reserva = _numeroReserva; }
         void setNombreCliente(string _nombreCliente) { Nombre_cliente = _nombreCliente; }
         void setNocheEstadia(int _nocheEstadia) { Noche_estadia = _nocheEstadia; }
-        void setPrecioPorNoche(float _precioPorNoche) { Precio_por_noche = _precioPorNoche; }
+        void setPrecioPor_Noche(float _precioPor_Noche) { Precio_por_noche = _precioPor_Noche; }
         
         //muestra de informacion
         void mostrarinformacion(){
