@@ -4,6 +4,7 @@
 // Stefano Negroni Postiglione  21.945.448-1
 // Pablo Antonio Labra Jabre 21.280.591-2
 // Isabella Victoria Quintero González 25.868.144-4
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -46,8 +47,8 @@ class Reserva_hotel{
             cout << "Nombre de cliente: " << Nombre_cliente<< endl;
             cout << "Fecha de entrada: "  << Fecha_entrada << endl;
             cout << "Noche de estadia: " << Noche_estadia << endl;
-            cout << "precio por noche: " << Precio_por_noche<< endl;
-            cout << "costo: " << calcular_costo_total() << endl; 
+            cout << "Precio por noche: " << Precio_por_noche<< endl;
+            cout << "Costo: " << calcular_costo_total() << endl;
         }
         
         //actualiza las fechas 
@@ -63,7 +64,7 @@ class Reserva_hotel{
 
 int main(){
     //testeo del codigo usando variables propias 
-    Reserva_hotel miReserva(98, "Máximo González", "12-04-2026", 4, 1000.0);
+    Reserva_hotel miReserva(98, "Maximo Gonzalez", "12-04-2026", 4, 1000.0);
     
     cout << " ESTADO INICIAL" << endl;
     miReserva.mostrarinformacion(); 
