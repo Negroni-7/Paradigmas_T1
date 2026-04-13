@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+
 int eleccion;
 // Se crean las variables que se utilizarán
 float resultado = 0, n , k;

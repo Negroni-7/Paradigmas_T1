@@ -99,7 +99,7 @@ class Calificaciones{
         }
 
         void listarCalificacionesSobrePromedio(){
-            cout << "Notas mayores al promedio " << getPromedio() << endl;
+            cout << "Notas mayores al promedio (promedio: " << getPromedio() << "):"<< endl;
             for (float n : calificaciones){
                     if (n > getPromedio()){
                         cout << n << " ";
