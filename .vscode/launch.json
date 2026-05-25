@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Principal",
+      "request": "launch",
+      "mainClass": "Ejercicio2.Principal",
+      "projectName": "Paradigmas_T1_2b1184ad"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
