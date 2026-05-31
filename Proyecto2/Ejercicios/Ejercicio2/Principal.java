@@ -1,8 +1,15 @@
+// Fiona Catalina Castro Villarroel 21501220-4
+// José-Tomás Guzmán  Ilabel 21.132.176-8
+// Máximo Eduardo González Arriagada 21.978.604-2
+// Stefano Negroni Postiglione  21.945.448-1
+// Pablo Antonio Labra Jabre 21.280.591-2
+// Isabella Victoria Quintero González 25.868.144-4
+
 package Ejercicio2;
 
 public class Principal {
     public static void main(String[] args) {
-        // Crear un estudiante
+        // Crear seis estudiantes
         Estudiante estudiante1 = new Estudiante("Esteban Yanes", "e.yanespez@uandresbello.edu");
         Estudiante estudiante2 = new Estudiante("Pablo Labra", "p.labrajabre@uandresbello.edu");
         Estudiante estudiante3 = new Estudiante("Daniela Jara", "d.jaracanales@uandresbello.edu");
